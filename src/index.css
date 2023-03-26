@@ -11,3 +11,25 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.cart-item{
+  
+  display: flex;
+  /* inline-flex */
+  margin: 20px 10px;
+  padding: 5px 5px;
+}
+
+.cart-item .right-block{
+  padding: 0 20px;
+}
+
+.cart-item-actions{
+  height:25px;
+  width: 25px;
+  margin-right: 10px;
+}
+
+.action-icons:hover{
+  cursor: pointer;
+}
