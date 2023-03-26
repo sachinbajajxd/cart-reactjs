@@ -1,23 +1,39 @@
 import React from "react";
 
 class CartItem extends React.Component {
-    render (){
+
+    constructor(){
+        super();
+        this.state = {
+            price: 9999,
+            title: 'Mobile Phone',
+            qty: 1,
+            img: ''
+        }
+    }
+
+    render() {
+        const{price, title, qty} = this.state;
         return (
             <div className="cart-item">
                 <div className="left-block">
                     {/* Image */}
-                    <img style={styles.image} alt="Img" />
+                    <img style={styles.image} alt="Product-Image" />
                 </div>
                 <div className="right-block">
                     {/* Title */}
-                    <div style={{fontSize : 25}}>Phone</div>
+                    <div style={{ fontSize: 25 }}>{title}</div>
                     {/* Price */}
-                    <div style={{color: "lightgrey"}}>9999</div>
+                    <div style={{ color: "lightgrey" }}>Rs. {price}</div>
                     {/* Qunatity */}
-                    <div style={{color: "lightgrey"}}>Qty: 1</div>
+                    <div style={{ color: "lightgrey" }}>Qty. {qty}</div>
                     {/* buttons */}
-                    <div className="cart-item-actions"></div>
-
+                    <div className="cart-item-actions">
+                        {/* + - Delete */}
+                        <img className="action-icons" src="https://cdn-icons-png.flaticon.com/512/992/992651.png" />
+                        <img className="action-icons" src="https://cdn-icons-png.flaticon.com/512/992/992683.png" />
+                        <img className="action-icons" src="https://cdn-icons-png.flaticon.com/512/484/484611.png" />
+                    </div>
                 </div>
             </div>
         );
@@ -25,9 +41,9 @@ class CartItem extends React.Component {
 }
 
 const styles = {
-    image : {
-        height: 110,
-        width: 110,
+    image: {
+        minHeight: 110,
+        minWidth: 110,
         borderRadius: 4,
         background: '#ccc'
     }
