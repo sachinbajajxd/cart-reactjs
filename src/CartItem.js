@@ -1,59 +1,20 @@
 import React from "react";
 
-class CartItem extends React.Component {
+const CartItem = (props) => {
 
-    increaseQuantity = () => {
-        // console.log("Test");
-        // this.state.qty+=1;
-
-        // first method
-        // this.setState({
-        //     qty: this.state.qty+1
-        // });
-
-        //second method 
-        this.setState((prevState) => {
-            return {
-                qty: prevState.qty+1
-            }
-        }, () => {
-            console.log('this.state', this.state);
-        });
-        // console.log('this.state', this.state);
-    }
-
-    decreaseQuantity = () => {
-
-        const { qty } = this.state;
-
-        if(qty===0){
-            alert("Cannot be deleted");
-            return;
-        }
-
-        this.setState((prevState) => {
-            return {
-                qty: prevState.qty-1
-            }
-        }, () => {
-            console.log('this.state', this.state);
-        });
-    }
-
-    render() {
-        console.log('this.props', this.props);
-        const{ price, title, qty, id } = this.props.product;
+        console.log('this.props', props);
+        const{ price, title, qty, id, img } = props.product;
         const { 
             product, 
             onIncreaseQuantity, 
             onDecreaseQuantity, 
             onDeleteProduct
-        } = this.props;
+        } = props;
         return (
             <div className="cart-item">
                 <div className="left-block">
                     {/* Image */}
-                    <img style={styles.image} alt="Product-Image" />
+                    <img src={product.img} style={styles.image} alt="Product-Image" />
                 </div>
                 <div className="right-block">
                     {/* Title */}
@@ -72,13 +33,12 @@ class CartItem extends React.Component {
                 </div>
             </div>
         );
-    };
 }
 
 const styles = {
     image: {
-        minHeight: 110,
-        minWidth: 110,
+        maxHeight: 150,
+        maxWidth: 150,
         borderRadius: 4,
         background: '#ccc'
     }
